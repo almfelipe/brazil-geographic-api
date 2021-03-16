@@ -38,7 +38,7 @@ class BouboundaryController extends Controller
             if(count($reverseGeocode) > 0){
                 return response()->json(['reversegeocode' => $reverseGeocode[0]]);
             }else{
-                return $this->returnNotFound404();
+                return $this->notFound404();
             }
         }catch(\Exception $ex){
             return $this->internalServerError500($ex);
