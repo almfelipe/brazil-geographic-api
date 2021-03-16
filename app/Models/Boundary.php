@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $id_city
  * @property string $shape
  * @property string $geometry_type
- * @property geometry $geometry_shape
  *
  * @property City|null $city
  * @property Region|null $region
@@ -35,8 +34,7 @@ class Boundary extends Model
 		'id' => 'int',
 		'id_region' => 'int',
 		'id_state' => 'int',
-		'id_city' => 'int',
-		'geometry_shape' => 'geometry'
+		'id_city' => 'int'
 	];
 
 	protected $fillable = [
@@ -45,8 +43,11 @@ class Boundary extends Model
 		'id_city',
 		'shape',
 		'geometry_type',
-		'geometry_shape'
 	];
+
+    protected $hidden = [
+        'geometry_shape',
+    ];
 
 	public function city()
 	{
