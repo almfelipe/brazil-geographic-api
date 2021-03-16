@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RegionController;
+use App\Models\Boundary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +20,10 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('reversegeocode', 'App\Http\Controllers\BouboundaryController@reverseGeocode');
+//Route::post('reversegeocode', 'App\Http\Controllers\BouboundaryController@reverseGeocode');
 
 //http://localhost:8000/api/reversegeocode?latitude=-12.974722&longitude=-38.476665
-Route::get('reversegeocode', 'App\Http\Controllers\BouboundaryController@reverseGeocode');
+Route::get('boundary/reversegeocode', [Boundary::class, 'reverseGeocode'])->name('boundary.reversegeocode');
 
 //http://localhost:8000/api/region?boundary=1
 //http://localhost:8000/api/region/1?boundary=1
