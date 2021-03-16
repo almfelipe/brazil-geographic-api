@@ -1,10 +1,14 @@
 on: push
-  name: Run SSH command
-  uses: garygrossgarten/github-action-ssh@v0.6.3
-  with:
-    # Command to execute on the remote server.
-    command: ls
-    host: priscillabagano.com.br
-    username: prisci34
-    port: 22
-    privateKey: ${{ secrets.PRIVATE_KEY }}
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 📂 Sync files
+      uses: nerd4ever/ssh-action@master
+      with:
+        command: ls -a
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        key: ${{ secrets.PRIVATE_KEY}}
