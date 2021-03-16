@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class BouboundaryController extends Controller
+class BoundaryController extends Controller
 {
 
     private function reverseGeocodeQuery($latitude, $longitude){
