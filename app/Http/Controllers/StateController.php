@@ -36,9 +36,7 @@ class StateController extends Controller
                     $state = State::with('boundary')->where('initials', $id)->first();
                 }
             }else{
-                error_log('n tem boundary, é int (' . $id . ')? ' . (is_int($id) ? 'sim' : 'não'));
                 if (is_numeric($id)){
-                    error_log('ja era');
                     $state = State::find($id);
                 }else{
                     $state = State::where('initials', $id)->first();
