@@ -10,34 +10,38 @@ class BouboundaryController extends Controller
 {
 
     private function reverseGeocodeQuery($latitude, $longitude){
-        $query = "
-            select
-                boundary.id_region as region_id,
-                region.name as region_name,
-                boundary.id_state as state_id,
-                state.name as state_name,
-                boundary.id_city as city_id,
-                city.name as city_name
-            from
-                boundary
-                join region on region.id = boundary.id_region
-                join state on state.id = boundary.id_state
-                join city on city.id = boundary.id_city
-            where
-                boundary.id_city is not null and
-                st_contains(
-                    boundary.geometry_shape,
-                    point(:latitude, :longitude)
-                ) = 1
-            limit 1
-        ";
+        try{
+            $query = "
+                select
+                    boundary.id_region as region_id,
+                    region.name as region_name,
+                    boundary.id_state as state_id,
+                    state.name as state_name,
+                    boundary.id_city as city_id,
+                    city.name as city_name
+                from
+                    boundary
+                    join region on region.id = boundary.id_region
+                    join state on state.id = boundary.id_state
+                    join city on city.id = boundary.id_city
+                where
+                    boundary.id_city is not null and
+                    st_contains(
+                        boundary.geometry_shape,
+                        point(:latitude, :longitude)
+                    ) = 1
+                limit 1
+            ";
 
-        $reverseGeocode = DB::select(DB::raw($query), ["latitude" => $latitude, "longitude" => $longitude]);
+            $reverseGeocode = DB::select(DB::raw($query), ["latitude" => $latitude, "longitude" => $longitude]);
 
-        if(count($reverseGeocode) > 0){
-            return response()->json(['reversegeocode' => $reverseGeocode[0]]);
-        }else{
-            return response()->json(['error' => ['msg' => ['Not found']] ], 404);
+            if(count($reverseGeocode) > 0){
+                return response()->json(['reversegeocode' => $reverseGeocode[0]]);
+            }else{
+                return $this->returnNotFound404();
+            }
+        }catch(\Exception $ex){
+            return $this->internalServerError500($ex);
         }
     }
 
