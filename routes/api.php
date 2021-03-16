@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ Route::post('reversegeocode', 'App\Http\Controllers\BouboundaryController@revers
 
 //http://localhost:8000/api/reversegeocode?latitude=-12.974722&longitude=-38.476665
 Route::get('reversegeocode', 'App\Http\Controllers\BouboundaryController@reverseGeocode');
+
+Route::resource('region', RegionController::class)->only(['index', 'show']);
