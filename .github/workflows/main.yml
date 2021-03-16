@@ -1,16 +1,10 @@
 on: push
-name: 🚀 Deploy website on push
-jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2.3.2
-
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: ftpupload.net
-        username: epiz_28158892
-        password: ${{ secrets.ftp_password }}
+  name: Run SSH command
+  uses: garygrossgarten/github-action-ssh@v0.6.3
+  with:
+    # Command to execute on the remote server.
+    command: ls
+    host: priscillabagano.com.br
+    username: prisci34
+    port: 22
+    privateKey: ${{ secrets.PRIVATE_KEY }}
