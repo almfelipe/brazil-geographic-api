@@ -46,6 +46,10 @@ class Boundary extends Model
 	];
 
     protected $hidden = [
+        'id',
+        'id_region',
+		'id_state',
+		'id_city',
         'geometry_shape',
     ];
 
