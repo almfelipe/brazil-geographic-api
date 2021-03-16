@@ -11,10 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Region
- * 
+ *
  * @property int $id
  * @property string $name
- * 
+ *
  * @property Collection|Boundary[] $boundaries
  * @property Collection|City[] $cities
  * @property Collection|State[] $states
@@ -34,6 +34,11 @@ class Region extends Model
 	protected $fillable = [
 		'name'
 	];
+
+
+    public function boundary(){
+        return $this->hasOne(Boundary::class, 'id_region')->whereNull('id_state')->whereNull('id_city');
+    }
 
 	public function boundaries()
 	{
