@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class State
- * 
+ *
  * @property int $id
  * @property int $id_region
  * @property string $initials
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $order_map
  * @property float $latitude
  * @property float $longitude
- * 
+ *
  * @property Region $region
  * @property Collection|Boundary[] $boundaries
  * @property Collection|City[] $cities
@@ -51,6 +51,10 @@ class State extends Model
 		'latitude',
 		'longitude'
 	];
+
+    public function boundary(){
+        return $this->hasOne(Boundary::class, 'id_state')->whereNull('id_city');
+    }
 
 	public function region()
 	{

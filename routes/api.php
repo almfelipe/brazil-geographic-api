@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\BoundaryController;
 use App\Http\Controllers\RegionController;
-use App\Models\Boundary;
+use App\Http\Controllers\StateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +29,8 @@ Route::get('boundary/reversegeocode', [BoundaryController::class, 'reverseGeocod
 //http://localhost:8000/api/region?boundary=1
 //http://localhost:8000/api/region/1?boundary=1
 Route::resource('region', RegionController::class)->only(['index', 'show']);
+
+//http://localhost:8000/api/state?boundary=1
+//http://localhost:8000/api/state/29?boundary=1
+//http://localhost:8000/api/state/BA?boundary=1
+Route::resource('state', StateController::class)->only(['index', 'show']);
