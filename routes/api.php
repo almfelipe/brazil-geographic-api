@@ -24,4 +24,6 @@ Route::post('reversegeocode', 'App\Http\Controllers\BouboundaryController@revers
 //http://localhost:8000/api/reversegeocode?latitude=-12.974722&longitude=-38.476665
 Route::get('reversegeocode', 'App\Http\Controllers\BouboundaryController@reverseGeocode');
 
+//http://localhost:8000/api/region?boundary=1
+//http://localhost:8000/api/region/1?boundary=1
 Route::resource('region', RegionController::class)->only(['index', 'show']);
