@@ -13,9 +13,9 @@ class StateController extends Controller
             $boundary = $request->input('boundary');
 
             if($boundary){
-                $states = State::with('boundary')->get();
+                $states = State::with(['region', 'boundary'])->get();
             }else{
-                $states = State::all();
+                $states = State::with(['region'])->get();
             }
 
             return $states ? $states : $this->notFound404();
@@ -31,15 +31,15 @@ class StateController extends Controller
 
             if($boundary){
                 if (is_numeric($id)){
-                    $state = State::with('boundary')->find($id);
+                    $state = State::with(['region', 'boundary'])->find($id);
                 }else{
-                    $state = State::with('boundary')->where('initials', $id)->first();
+                    $state = State::with(['region', 'boundary'])->where('initials', $id)->first();
                 }
             }else{
                 if (is_numeric($id)){
-                    $state = State::find($id);
+                    $state = State::with(['region'])->find($id);
                 }else{
-                    $state = State::where('initials', $id)->first();
+                    $state = State::with(['region'])->where('initials', $id)->first();
                 }
             }
 
