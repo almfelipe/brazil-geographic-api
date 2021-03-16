@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class City
- * 
+ *
  * @property int $id
  * @property int $id_region
  * @property int $id_state
@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $longitude
  * @property int $altitude
  * @property float $area
- * 
+ *
  * @property Region $region
  * @property State $state
  * @property Collection|Boundary[] $boundaries
@@ -72,4 +72,9 @@ class City extends Model
 	{
 		return $this->hasMany(Boundary::class, 'id_city');
 	}
+
+    public function boundary(){
+        return $this->hasOne(Boundary::class, 'id_city');
+    }
+
 }

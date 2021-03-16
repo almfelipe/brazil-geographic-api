@@ -3,6 +3,7 @@
 use App\Http\Controllers\BoundaryController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\StateController;
+use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,11 @@ Route::resource('region', RegionController::class)->only(['index', 'show']);
 //http://localhost:8000/api/state/29?boundary=1
 //http://localhost:8000/api/state/BA?boundary=1
 Route::resource('state', StateController::class)->only(['index', 'show']);
+
+
+//http://localhost:8000/api/city/2927408?boundary=1
+Route::resource('city', CityController::class)->only(['show']);
+
+//http://localhost:8000/api/city/state/29?boundary=1
+//http://localhost:8000/api/city/state/BA?boundary=1
+Route::get('city/state/{state}', [CityController::class, 'citiesFromState'])->name('city.fromstate');
