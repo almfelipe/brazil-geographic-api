@@ -11,7 +11,6 @@ class RegionController extends Controller
     {
         try{
             $boundary = $request->input('boundary');
-            $regions = null;
 
             if($boundary){
                 $regions = Region::with('boundary')->get();
@@ -29,7 +28,6 @@ class RegionController extends Controller
     {
         try{
             $boundary = $request->input('boundary');
-            $region = null;
 
             if($boundary){
                 $region = Region::with('boundary')->find($id);
