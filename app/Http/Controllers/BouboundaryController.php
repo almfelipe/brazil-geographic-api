@@ -19,7 +19,7 @@ class BouboundaryController extends Controller
                 boundary.id_city as city_id,
                 city.name as city_name
             from
-                ibge.boundary
+                boundary
                 join region on region.id = boundary.id_region
                 join state on state.id = boundary.id_state
                 join city on city.id = boundary.id_city
