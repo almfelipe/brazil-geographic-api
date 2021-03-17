@@ -1,14 +1,15 @@
 on: push
-name: 🚀 Deploy website on push
+name: 🚀 Deploy api on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 📂 Sync files
-      uses: nerd4ever/ssh-action@master
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
       with:
-        command: ls -a
         host: ${{ secrets.HOST }}
-        user: ${{ secrets.USER }}
-        key: ${{ secrets.PRIVATE_KEY}}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.PORT }}
+        script: ls -a
