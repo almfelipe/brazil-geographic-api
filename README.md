@@ -20,7 +20,7 @@ git clone https://github.com/almfelipe/brazil-geographic-api.git
 ```
 
 ### Configure database
-Configure a database as described at [brazil-geographic-data](https://github.com/almfelipe/).
+Configure a database as described at [brazil-geographic-data](https://github.com/almfelipe/brazil-geographic-data).
 
 Set database host, name, password, and port on project's .env file. 
 ```
