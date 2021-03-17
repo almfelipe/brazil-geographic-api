@@ -24,8 +24,8 @@ use Illuminate\Support\Facades\Route;
 
 //Route::post('reversegeocode', 'App\Http\Controllers\BouboundaryController@reverseGeocode');
 
-//http://127.0.0.1:8000/api/boundary/reversegeocode?latitude=-12.974722&longitude=-38.476665
-Route::get('boundary/reversegeocode', [BoundaryController::class, 'reverseGeocode'])->name('boundary.reversegeocode');
+//http://127.0.0.1:8000/api/reversegeocode?latitude=-12.974722&longitude=-38.476665
+Route::get('reversegeocode', [BoundaryController::class, 'reverseGeocode'])->name('boundary.reversegeocode');
 
 //http://localhost:8000/api/region?boundary=1
 //http://localhost:8000/api/region/1?boundary=1
