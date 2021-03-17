@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return Redirect::to("https://app.swaggerhub.com/apis-docs/alm.felipe/brazil-geographic-api/1.0.0");
 });
