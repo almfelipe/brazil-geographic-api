@@ -26,6 +26,7 @@ class BoundaryController extends Controller
                     join city on city.id = boundary.id_city
                 where
                     boundary.id_city is not null and
+                    ST_IsValid(boundary.geometry_shape) = 1 and
                     st_contains(
                         boundary.geometry_shape,
                         point(:latitude, :longitude)
