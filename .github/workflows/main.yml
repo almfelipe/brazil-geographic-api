@@ -5,11 +5,12 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
+    - name: ls -a via ssh
+      uses: fifsky/ssh-action@master
       with:
+        command: |
+          cd /tmp
+          ls -a
         host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
+        user: ${{ secrets.USER }}
         key: ${{ secrets.PRIVATE_KEY }}
-        port: ${{ secrets.PORT }}
-        script: ls -a
