@@ -17,6 +17,7 @@ class BoundaryController extends Controller
                     region.name as region_name,
                     boundary.id_state as state_id,
                     state.name as state_name,
+                    state.initials as state_initials,
                     boundary.id_city as city_id,
                     city.name as city_name
                 from
