@@ -19,6 +19,25 @@ Make sure you have PHP 7.3, Composer, and MySql 5.7 installed in your developmen
 git clone https://github.com/almfelipe/brazil-geographic-api.git
 ```
 
+### Config .env file
+```
+cd [your-project-directory]
+```
+
+linux:
+```
+cp .env.example .env 
+```
+
+windows:
+```
+copy .env.example .env
+```
+
+```
+php artisan key:generate
+```
+
 ### Configure database
 Configure a database as described at [brazil-geographic-data](https://github.com/almfelipe/brazil-geographic-data).
 
