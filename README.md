@@ -1,5 +1,5 @@
 # brazil-geographic-api
-brazil-geographic-api retrieves geographic data about Brazilian regions, states, and cities. Api documentation available at this [link](https://app.swaggerhub.com/apis-docs/alm.felipe/brazil-geographic-api/1.0.0).
+brazil-geographic-api retrieves geographic data about Brazilian regions, states, and cities. Api documentation available at this [link](https://app.swaggerhub.com/apis-docs/alm.felipe/brazil-geographic-api/1.0.0). API [sample base url](http://brazil-geographic-api.almfelipe.com/api).
 
 ### Built with
 * [Laravel](https://laravel.com/)
