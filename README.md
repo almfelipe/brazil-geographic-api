@@ -26,15 +26,13 @@ cd [your-project-directory]
 
 linux:
 ```
-cp .env.example .env 
+cp .env.example .env
+php artisan key:generate
 ```
 
 windows:
 ```
 copy .env.example .env
-```
-
-```
 php artisan key:generate
 ```
 
